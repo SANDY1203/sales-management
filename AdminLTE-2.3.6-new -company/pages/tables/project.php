@@ -1,9 +1,37 @@
 <?php
-
+include("ajax/db_connection.php");
 session_start();
 
+$var1 = $_SESSION['user_id1'];
 
 
+$query = "SELECT * FROM company WHERE user_id = '$var1'";
+    if (!$result = mysql_query($query)) {
+        exit(mysql_error());
+    }
+  
+    if(mysql_num_rows($result) > 0) {
+        while ($row = mysql_fetch_assoc($result)) {
+            
+			
+			$username = $row['company_id'];
+				
+				$query12 = "SELECT * FROM contact WHERE contact_company_allo = '$username'";
+				
+				if (!$result12 = mysql_query($query12)) {
+        exit(mysql_error());
+    }
+
+    // if query results contains rows then featch those rows 
+    if(mysql_num_rows($result12) > 0)
+    {
+				
+				while($row12 = mysql_fetch_assoc($result12)){
+			$var2 = $row12['id'];
+			
+				}
+	}
+	}}
 
 ?>
 
@@ -110,7 +138,7 @@ session_start();
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                  <a href="http://localhost/sales-management/AdminLTE-2.3.6-new/pages/examples/login_sandy.php" class="btn btn-default btn-flat">Sign out</a>
@@ -194,7 +222,8 @@ session_start();
             <div class="box-header">
 			<button class="btn btn-success" data-toggle="modal" onclick="location.href='invoice.php'">INVOICE</button>
 				<button class="btn btn-success" data-toggle="modal" onclick="location.href='quotation.php'">QUOTATION</button>
-			
+				<button class="btn btn-success" data-toggle="modal" data-target="#give_feedback">Give FeedBack</button>
+
 			  <div class="col-md-9">
 			                <h1 class="box-title"><b>PROJECT</b></h1>
 			  
@@ -210,7 +239,66 @@ session_start();
 
 <!-- // Modal -->
 
+<div class="modal fade" id="give_feedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Please GIVE ANSWERS</h4>
+            </div>
+            <div class="modal-body">
+			
 
+                <?php 
+  include("ajax/db_connection.php");
+  $data = '';
+$query12 = "SELECT * FROM questions";
+				
+				if (!$result12 = mysql_query($query12)) {
+        exit(mysql_error());
+    }
+
+    // if query results contains rows then featch those rows 
+    if(mysql_num_rows($result12) > 0)
+    {
+				$num = 1;
+				
+				while($row12 = mysql_fetch_assoc($result12)){
+				
+				
+				
+			$data .=	'<div class="form-group">
+			<label for="project_name">'.$row12['question'].'</label>
+			<input type="text" id="feedback'.$num.'" placeholder="Answer" class="form-control"/>
+			</div>';
+			$num++;
+				}
+	}
+	
+ 
+
+echo $data;
+
+  ?>
+				
+				
+<div class="form-group">
+                    <label for="project_team">SUMMARY/REMARKS</label>
+                    <input type="text" id="remarks" placeholder="SUMMARY/REMARKS" class="form-control"/>
+                </div>
+                
+				
+				
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="feedback('<?php echo $var1;?>','<?php echo $var2;?>','<?php echo $num;?>')">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // Modal -->
 <div class="modal fade" id="view_project_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
