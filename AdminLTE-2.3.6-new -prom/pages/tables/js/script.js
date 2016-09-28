@@ -1,5 +1,101 @@
 // User Section
 
+function updatefirstname(id) {
+    // get values
+    var first_name = $("#first_name_update").val();
+    
+
+    // get hidden field value
+    var id = id;
+
+    // Update the details by requesting to the server using ajax
+    $.post("ajax/updateUserDetailsPro.php", {
+            id: id,
+            first_name: first_name
+            
+        },
+        function (data, status) {
+            // hide modal popup
+            $("#update_firstname78").modal("hide");
+            // reload Users by using readRecords();
+            window.location.reload();
+        }
+    );
+}
+
+function updatelastname(id) {
+    // get values
+    var last_name = $("#last_name_update").val();
+    
+
+    // get hidden field value
+    var id = id;
+
+    // Update the details by requesting to the server using ajax
+    $.post("ajax/updateUserDetailsPro.php", {
+            id: id,
+            last_name: last_name
+            
+        },
+        function (data, status) {
+            // hide modal popup
+            $("#update_lastname78").modal("hide");
+            // reload Users by using readRecords();
+            window.location.reload();
+        }
+    );
+}
+
+function updateemail(id) {
+    // get values
+    var email = $("#email_update").val();
+    
+
+    // get hidden field value
+    var id = id;
+
+    // Update the details by requesting to the server using ajax
+    $.post("ajax/updateUserDetailsPro.php", {
+            id: id,
+            email: email
+            
+        },
+        function (data, status) {
+            // hide modal popup
+            $("#update_email78").modal("hide");
+            // reload Users by using readRecords();
+            window.location.reload();
+        }
+    );
+}
+
+
+function updatepassword(id) {
+    // get values
+    var password = $("#password_update").val();
+    
+
+    // get hidden field value
+    var id = id;
+
+    // Update the details by requesting to the server using ajax
+    $.post("ajax/updateUserDetailsPro.php", {
+            id: id,
+            password: password
+            
+        },
+        function (data, status) {
+            // hide modal popup
+            $("#update_password78").modal("hide");
+            // reload Users by using readRecords();
+            window.location.reload();
+        }
+    );
+}
+
+
+
+
 // Add Record
 function addRecord() {
     // get values

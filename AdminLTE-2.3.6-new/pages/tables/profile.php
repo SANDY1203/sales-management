@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+$var1=$_SESSION['user_id1']
 
 
 
@@ -286,11 +286,11 @@ session_start();
  <tbody>  
 
     <tr>  
-      <td><?php echo "$abcd"; ?> </td>
-      <td><?php echo "$abcd1"; ?></td>
-      <td><?php echo "$abcd2"; ?></td>
-      <td><?php echo "$abcd3"; ?></td>
-      <td><?php echo "$abcd4"; ?></td>
+      <td><?php echo "$abcd"; ?> <button class="btn btn-success" data-toggle="modal" data-target="#update_firstname78">Update</button></td>
+      <td><?php echo "$abcd1"; ?> <button class="btn btn-success" data-toggle="modal" data-target="#update_lastname78">Update</button></td>
+      <td><?php echo "$abcd2"; ?> <button class="btn btn-success" data-toggle="modal" data-target="#update_email78">Update</button></td>
+      <td><?php echo "$abcd3"; ?> <button class="btn btn-success" data-toggle="modal" data-target="#update_password78">Update</button></td>
+      <td><?php echo "$abcd4"; ?> </td>
     </tr>
   
   </tbody>
@@ -325,7 +325,102 @@ session_start();
           </div>
           <!-- /.box -->
 
-          
+          <div class="modal fade" id="update_firstname78" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Update Firstname</h4>
+            </div>
+            <div class="modal-body">
+
+                
+				<div class="form-group">
+                    <label for="question">Enter New First Name</label>
+                    <input type="text" id="first_name_update" placeholder="Enter New First Name" class="form-control"/>
+                </div>
+				
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="updatefirstname('<?php echo $var1;?>')">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="modal fade" id="update_lastname78" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Update Lastname</h4>
+            </div>
+            <div class="modal-body">
+
+                
+				<div class="form-group">
+                    <label for="question">Enter New Last Name</label>
+                    <input type="text" id="last_name_update" placeholder="Enter Last Name" class="form-control"/>
+                </div>
+				
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="updatelastname('<?php echo $var1;?>')">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="modal fade" id="update_email78" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Update Email</h4>
+            </div>
+            <div class="modal-body">
+
+                
+				<div class="form-group">
+                    <label for="question">Enter New Email</label>
+                    <input type="text" id="email_update" placeholder="New email" class="form-control"/>
+                </div>
+				
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="updateemail('<?php echo $var1;?>')">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="modal fade" id="update_password78" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Update password</h4>
+            </div>
+            <div class="modal-body">
+
+                
+				<div class="form-group">
+                    <label for="question">Enter New password</label>
+                    <input type="text" id="password_update" placeholder="Enter New Password" class="form-control"/>
+                </div>
+				
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="updatepassword('<?php echo $var1;?>')">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
           <!-- /.box -->
         </div>
         <!-- /.col -->

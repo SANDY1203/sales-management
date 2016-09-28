@@ -244,7 +244,7 @@ $query = "SELECT * FROM company WHERE user_id = '$var1'";
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Please GIVE ANSWERS</h4>
+                <h4 class="modal-title" id="myModalLabel">Please Give FeedBack</h4>
             </div>
             <div class="modal-body">
 			
